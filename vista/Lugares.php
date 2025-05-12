@@ -131,9 +131,9 @@
 
             <input type="submit" value="Registrar" name="lugRegis"  >
         </form>
-        <?php    
+        <?php
         include('../CONTROLADOR/conLugar.php');
-       
+
         ?>
     </div>
 </body>

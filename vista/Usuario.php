@@ -149,8 +149,8 @@
 
 
         <?php
-       
-        include('../CONTROLADOR/conUsuario.php');    
+
+        include('../CONTROLADOR/conUsuario.php');
         ?>
 
 

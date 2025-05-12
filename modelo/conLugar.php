@@ -15,13 +15,13 @@ if (!empty($_POST['lugRegis'])) {
     $Imagen = $_FILES['imagen']['tmp_name'];
     $NombreImagen = $_FILES['imagen']['name'];
     $TipoImagen = strtolower(pathinfo($NombreImagen, PATHINFO_EXTENSION));
-    $directorio ="../img/";
+    $directorio = '../img/';
 
 
     // Verificamos que sea una extensión de imagen válida
-    $extensionesValidas = array("jpg", "jpeg", "png", "gif");
+    $extensionesValidas = ['jpg', 'jpeg', 'png', 'gif'];
     if (!in_array($TipoImagen, $extensionesValidas)) {
-        echo "Solo se permiten archivos de imagen.";
+        echo 'Solo se permiten archivos de imagen.';
         exit;
     }
 
@@ -33,12 +33,12 @@ if (!empty($_POST['lugRegis'])) {
     // Movemos la imagen a su ubicación final
     $ruta = $directorio . $NombreImagenUnico;
     if (!move_uploaded_file($Imagen, $ruta)) {
-        echo "Hubo un error al subir la imagen.";
+        echo 'Hubo un error al subir la imagen.';
         exit;
     }
 
 
-    $Lugar1 = new Lugar($Nombre,$Direcc , $capaci ,  $descripcion, $Imagen);
+    $Lugar1 = new Lugar($Nombre, $Direcc, $capaci, $descripcion, $Imagen);
 
 
     $resulLug = $Lugar1->InsertarLugar($Lugar1);
@@ -46,31 +46,31 @@ if (!empty($_POST['lugRegis'])) {
 
 
     if ($resulLug) {
-        echo "Lugar insertado correctamente.";
+        echo 'Lugar insertado correctamente.';
     } else {
-        echo "Hubo un error al insertar el lugar.";
+        echo 'Hubo un error al insertar el lugar.';
     }
-} else if (!empty($_POST['Actualizar'])) {
+} elseif (!empty($_POST['Actualizar'])) {
     $Nombre1 = $_POST['nombre'];
-    $resul34 = new Lugar($Nombre1, '', '' , '' , '');
+    $resul34 = new Lugar($Nombre1, '', '', '', '');
     $Modificar100 = $resul34->ActualizarLugar($resul34);
 
 
     if ($Modificar100) {
-        echo "Se Actualizo Correctamente";
+        echo 'Se Actualizo Correctamente';
     } else {
-        echo "Error al Actualizar";
+        echo 'Error al Actualizar';
     }
-} else if (!empty($_POST['Eliminar'])) {
+} elseif (!empty($_POST['Eliminar'])) {
     $NombreEliminar = $_POST['nombre'];
-    $resulH = new Lugar($NombreEliminar, '', '' , '' ,'');
+    $resulH = new Lugar($NombreEliminar, '', '', '', '');
     $Eliminar = $resulH->EliminarLugar($resulH);
 
 
     if ($Eliminar) {
-        echo "Se Elimino correctamente";
+        echo 'Se Elimino correctamente';
     } else {
-        echo "Error al Eliminar";
+        echo 'Error al Eliminar';
     }
 }
 ?>
@@ -90,7 +90,7 @@ if (!empty($_POST['lugRegis'])) {
         <?php
         if (isset($resul12334)) {
             foreach ($resul12334 as $resultadoL) {
-        ?>
+                ?>
                 <tr>
                     <td><?php echo $resultadoL['nombre']; ?></td>
                     <td><?php echo $resultadoL['descripcion']; ?></td>
@@ -107,7 +107,7 @@ if (!empty($_POST['lugRegis'])) {
         <?php
             }
         }
-        ?>
+?>
     </table>
 </form>
 

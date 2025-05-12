@@ -16,31 +16,31 @@ if (!empty($_POST['Usuario1'])) {
 
 
     if ($resultado) {
-        echo "Artista insertado correctamente.";
+        echo 'Artista insertado correctamente.';
     } else {
-        echo "Hubo un error al insertar el artista.";
+        echo 'Hubo un error al insertar el artista.';
     }
-} else if (!empty($_POST['Actualizar'])) {
+} elseif (!empty($_POST['Actualizar'])) {
     $Nombre1 = $_POST['nombre'];
     $USUARIO2 = new Usuario($Nombre1, '', '');
     $Modificar = $USUARIO2->ActualizarDatos($USUARIO2);
 
 
     if ($Modificar) {
-        echo "Se Actualizo Correctamente";
+        echo 'Se Actualizo Correctamente';
     } else {
-        echo "Error al Actualizar";
+        echo 'Error al Actualizar';
     }
-} else if (!empty($_POST['Eliminar'])) {
+} elseif (!empty($_POST['Eliminar'])) {
     $NombreEliminar = $_POST['nombre'];
     $Usuario3 = new Usuario($NombreEliminar, '', '');
     $Eliminar = $Usuario3->EliminarDatos($Usuario3);
 
 
     if ($Eliminar) {
-        echo "Se Elimino correctamente";
+        echo 'Se Elimino correctamente';
     } else {
-        echo "Error al Eliminar";
+        echo 'Error al Eliminar';
     }
 }
 ?>
@@ -58,7 +58,7 @@ if (!empty($_POST['Usuario1'])) {
         <?php
         if (isset($resultadoConsulta)) {
             foreach ($resultadoConsulta as $resultado) {
-        ?>
+                ?>
                 <tr>
                     <td><?php echo $resultado['nombre']; ?></td>
                     <td><?php echo $resultado['correo']; ?></td>
@@ -70,7 +70,7 @@ if (!empty($_POST['Usuario1'])) {
         <?php
             }
         }
-        ?>
+?>
     </table>
 </form>
 
